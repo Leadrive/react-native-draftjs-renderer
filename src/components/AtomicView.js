@@ -5,6 +5,7 @@ import {
   Image,
   View
 } from 'react-native';
+import PropTypes from 'prop-types'
 
 import defaultStyles from './defaultStyles';
 
@@ -19,13 +20,16 @@ type AtomicViewPropsType = {
 };
 
 const AtomicView = (props: AtomicViewPropsType): any => {
-  const { entityRanges, entityMap, customStyles } = props
+  const { entityRanges, entityMap, customStyles, atomicHandler } = props
   if (entityRanges.length === 0) {
     return null
   }
   const entity = entityMap[entityRanges[0].key]
   if (!entity) {
     return null
+  }
+  if (atomicHandler) {
+    return atomicHandler(entity)
   }
   switch(entity.type) {
     case 'IMAGE': {
@@ -109,9 +113,9 @@ const AtomicView = (props: AtomicViewPropsType): any => {
 // }
 
 AtomicView.propTypes = {
-  text: React.PropTypes.string,
-  customStyles: React.PropTypes.any,
-  inlineStyles: React.PropTypes.array,
+  text: PropTypes.string,
+  customStyles: PropTypes.any,
+  inlineStyles: PropTypes.array,
 };
 
 AtomicView.defaultProps = {
