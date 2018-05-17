@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Platform
 } from 'react-native';
+import PropTypes from 'prop-types'
 
 type TextStyledPropsType = {
  text: string,
@@ -72,7 +73,7 @@ const styles = StyleSheet.flatten({
 });
 
 const getStyles = (itemType: any, customStyles: Object): any => {
-  console.log("ITEM TYPE", itemType)
+  // console.log("ITEM TYPE", itemType)
   // if (itemType.includes('bgcolor')) {
   //   return [StyleSheet.flatten({
   //     backgroundColor: itemType.split('-')[1]
@@ -112,7 +113,7 @@ const getStyles = (itemType: any, customStyles: Object): any => {
 
 const TextStyled = (props: TextStyledPropsType): any => {
   const textStyle = getStyles(props.type, props.customStyles, props.data);
-  console.log("Text style",textStyle)
+  // console.log("Text style",textStyle)
   if (props.onPress) {
     return <Text style={textStyle} onPress={props.onPress}>{props.text}</Text>;
   }
@@ -120,8 +121,8 @@ const TextStyled = (props: TextStyledPropsType): any => {
 };
 
 TextStyled.propTypes = {
-  text: React.PropTypes.string,
-  type: React.PropTypes.any.isRequired,
+  text: PropTypes.string,
+  type: PropTypes.any.isRequired,
 };
 
 TextStyled.defaultProps = {
