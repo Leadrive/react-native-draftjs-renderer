@@ -4,6 +4,7 @@ import React from 'react';
 import {
   Text,
 } from 'react-native';
+import PropTypes from 'prop-types'
 
 import loadAttributes from '../loadAttributes';
 
@@ -42,9 +43,9 @@ const DraftJsText = (props: DraftJsTextPropsType): any => {
 };
 
 DraftJsText.propTypes = {
-  text: React.PropTypes.string,
-  customStyles: React.PropTypes.any,
-  inlineStyles: React.PropTypes.array,
+  text: PropTypes.string,
+  customStyles: PropTypes.any,
+  inlineStyles: PropTypes.array,
 };
 
 DraftJsText.defaultProps = {
