@@ -132,6 +132,7 @@ const getBlocks = (
                 entityMap={bodyData.entityMap}
                 customStyles={customStyles}
                 navigate={navigate}
+                atomicHandler={atomicHandler}
               />
             </View>
           )
